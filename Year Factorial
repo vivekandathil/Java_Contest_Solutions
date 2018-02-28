@@ -1,0 +1,40 @@
+//Vivek Kandathil
+//February 28th, 2018
+//Finds the number of trailing zeroes at the end of the factorial of the current year
+
+package org.kandathil.vivek;
+
+import java.math.BigInteger;
+import java.util.Calendar;
+
+public class YearFactorial 
+{
+	//Assign 1 to BigInteger
+	static BigInteger f1 = BigInteger.valueOf(1);
+	
+	public static void main(String[] args) 
+	{
+		//Get value of current year
+		int yearValue = Calendar.getInstance().get(Calendar.YEAR);
+		
+		//i <= year so that current year is multiplied as well
+		for (int i = 1; i <= yearValue; i++)
+		{
+			f1 = f1.multiply(BigInteger.valueOf(i));
+		}
+		int zeroes = YearFactorial.getZeroes(yearValue);
+		System.out.println(zeroes);
+	}
+	
+	static int getZeroes(int year)
+	{
+		int count = 0;
+
+		for (int i = 5; (year / i) >= 1; i *= 5)
+		{
+			count = count + (year / i);
+		}
+		return count;
+	}
+	
+}
