@@ -26,7 +26,7 @@ public class YearFactorial
 		//Take the amount of zeroes from the getZeroes method
 		int zeroes = YearFactorial.getZeroes(yearValue);
 		
-		System.out.println(zeroes);
+		System.out.println("The factorial of " + yearValue + " has " + zeroes +  " trailing zeroes");
 	}
 	
 	static int getZeroes(int year)
